@@ -1,0 +1,50 @@
+{
+  "item.slime_boots.bounce": {
+    "sounds": [
+      "mob/slime/small1",
+      "mob/slime/small2",
+      "mob/slime/small3",
+      "mob/slime/small4",
+      "mob/slime/small5"
+    ],
+    "subtitle": "subtitle.toads-toolbox.slime_boots_bounce"
+  },
+  "item.breeze_jar.dash": {
+    "sounds": [
+      "dig/sand1",
+      "dig/sand2",
+      "dig/sand3",
+      "dig/sand4"
+    ],
+    "subtitle": "subtitle.toads-toolbox.breeze_jar_dash"
+  },
+  "item.magic_mirror.teleport": {
+    "sounds": [
+      "toads-toolbox:magic_mirror"
+    ],
+    "volume": 0.4,
+    "subtitle": "subtitle.toads-toolbox.magic_mirror_teleport"
+  },
+  "item.magic_mirror.invalid": {
+    "sounds": [
+      "block/respawn_anchor/charge1",
+      "block/respawn_anchor/charge2",
+      "block/respawn_anchor/charge3"
+    ],
+    "subtitle": "subtitle.toads-toolbox.magic_mirror_invalid"
+  },
+  "item.ender_mirror.bind": {
+    "sounds": [
+      "block/respawn_anchor/set_spawn1",
+      "block/respawn_anchor/set_spawn2",
+      "block/respawn_anchor/set_spawn3"
+    ],
+    "subtitle": "subtitle.toads-toolbox.ender_mirror_bind"
+  },
+  "block.teleporter.ambient": {
+    "sounds": [
+      "portal/portal"
+    ],
+    "subtitle": "subtitle.toads-toolbox.teleporter_ambient"
+  }
+}

@@ -1,0 +1,47 @@
+{
+	"schemaVersion": 1,
+	"id": "toads-toolbox",
+	"version": "${version}",
+	"name": "Toad's Toolbox",
+	"description": "Adds several new equipment items that you can find across your world!",
+	"authors": [
+		"supertoady"
+	],
+	"contact": {
+		"homepage": "https://modrinth.com/mod/toads-toolbox",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "ARR",
+	"icon": "assets/toads-toolbox/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"toady.toolbox.ToadsToolbox"
+		],
+		"client": [
+			"toady.toolbox.ToadsToolboxClient"
+		],
+		"fabric-datagen": [
+			"toady.toolbox.ToadsToolboxDataGenerator"
+		]
+	},
+	"mixins": [
+		"toads-toolbox.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.10",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	},
+	"custom": {
+		"modmenu": {
+			"links": {
+				"modmenu.modrinth": "https://modrinth.com/mod/toads-toolbox"
+			}
+		}
+	}
+}

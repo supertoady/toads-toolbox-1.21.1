@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "toads-toolbox:block/teleporter"
+    }
+  }
+}
