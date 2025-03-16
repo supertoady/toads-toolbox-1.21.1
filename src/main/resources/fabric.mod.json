@@ -9,7 +9,7 @@
 	],
 	"contact": {
 		"homepage": "https://modrinth.com/mod/toads-toolbox",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/supertoady/toads-toolbox-1.21.1"
 	},
 	"license": "ARR",
 	"icon": "assets/toads-toolbox/icon.png",
