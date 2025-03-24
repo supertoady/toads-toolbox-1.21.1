@@ -26,7 +26,7 @@ public class ModLootTableModifiers {
             if(TRIAL_VAULT_ID.equals(key.getValue())) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceLootCondition.builder(0.1f)) // 10% chance
+                        .conditionally(RandomChanceLootCondition.builder(0.05f)) // 5% chance
                         .with(ItemEntry.builder(ModItems.BREEZE_JAR))
                         .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1.0f)).build());
 

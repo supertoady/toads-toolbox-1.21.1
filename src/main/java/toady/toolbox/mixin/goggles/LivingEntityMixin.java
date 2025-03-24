@@ -14,6 +14,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import toady.toolbox.item.ModItems;
+import toady.toolbox.item.custom.NightVisionGogglesItem;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity{
@@ -25,9 +26,7 @@ public abstract class LivingEntityMixin extends Entity{
     public void hasStatusEffect(RegistryEntry<StatusEffect> effect, CallbackInfoReturnable<Boolean> cir){
         if (effect == StatusEffects.NIGHT_VISION){
             if ((Object)this instanceof PlayerEntity player){
-                if (player.getInventory().getArmorStack(3).isOf(ModItems.NIGHT_VISION_GOGGLES)){
-                    cir.setReturnValue(true);
-                }
+                cir.setReturnValue(NightVisionGogglesItem.isEquipped(player));
             }
         }
     }

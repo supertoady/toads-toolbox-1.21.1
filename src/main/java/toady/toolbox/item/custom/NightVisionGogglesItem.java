@@ -1,5 +1,8 @@
 package toady.toolbox.item.custom;
 
+import dev.emi.trinkets.api.TrinketComponent;
+import dev.emi.trinkets.api.TrinketItem;
+import dev.emi.trinkets.api.TrinketsApi;
 import net.minecraft.block.WearableCarvedPumpkinBlock;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.entity.Entity;
@@ -15,10 +18,12 @@ import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
 import toady.toolbox.ToadsToolbox;
+import toady.toolbox.item.ModItems;
 
 import java.util.List;
+import java.util.Optional;
 
-public class NightVisionGogglesItem extends Item implements Equipment {
+public class NightVisionGogglesItem extends TrinketItem implements Equipment {
     public NightVisionGogglesItem(Settings settings) {
         super(settings);
     }
@@ -37,5 +42,13 @@ public class NightVisionGogglesItem extends Item implements Equipment {
             tooltip.add(Text.literal("§8Press [§7Sneak§8] for Summary"));
         }
         super.appendTooltip(stack, context, tooltip, type);
+    }
+
+    public static boolean isEquipped(PlayerEntity entity){
+        Optional<TrinketComponent> trinketComponent = TrinketsApi.getTrinketComponent(entity);
+        if (entity.getInventory().getArmorStack(3).isOf(ModItems.NIGHT_VISION_GOGGLES)){
+            return true;
+        }
+        return trinketComponent.isPresent() && trinketComponent.get().isEquipped(ModItems.NIGHT_VISION_GOGGLES);
     }
 }
