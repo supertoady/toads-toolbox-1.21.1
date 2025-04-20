@@ -1,6 +1,5 @@
 package toady.toolbox.item.custom;
 
-import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ItemStack;
@@ -26,5 +25,10 @@ public class SlimeBootsItem extends ArmorItem {
             tooltip.add(Text.literal("§8Press [§7Sneak§8] for Summary"));
         }
         super.appendTooltip(stack, context, tooltip, type);
+    }
+
+    @Override
+    public boolean isEnchantable(ItemStack stack) {
+        return true;
     }
 }

@@ -7,7 +7,6 @@ import net.minecraft.client.render.model.BakedModel;
 import net.minecraft.client.render.model.json.ModelTransformationMode;
 import net.minecraft.client.util.ModelIdentifier;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -35,6 +34,9 @@ public abstract class ItemRendererMixin {
         if (stack.getItem() == ModItems.NIGHT_VISION_GOGGLES && renderMode != ModelTransformationMode.HEAD) {
             return getModels().getModelManager().getModel(ModelIdentifier.ofInventoryVariant(ToadsToolbox.id("night_vision_goggles")));
         }
+        if (stack.getItem() == ModItems.BANDANA && renderMode != ModelTransformationMode.HEAD) {
+            return getModels().getModelManager().getModel(ModelIdentifier.ofInventoryVariant(ToadsToolbox.id("bandana")));
+        }
         return bakedModel;
     }
 
@@ -46,6 +48,9 @@ public abstract class ItemRendererMixin {
     public BakedModel getHeldItemModelMixin(BakedModel bakedModel, @Local(argsOnly = true) ItemStack stack) {
         if (stack.getItem() == ModItems.NIGHT_VISION_GOGGLES) {
             return this.models.getModelManager().getModel(ModelIdentifier.ofInventoryVariant(ToadsToolbox.id("night_vision_goggles_head")));
+        }
+        if (stack.getItem() == ModItems.BANDANA) {
+            return this.models.getModelManager().getModel(ModelIdentifier.ofInventoryVariant(ToadsToolbox.id("bandana_head")));
         }
         return bakedModel;
     }

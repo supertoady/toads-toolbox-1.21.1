@@ -1,10 +1,15 @@
 package toady.toolbox;
 
+import dev.emi.trinkets.api.TrinketComponent;
+import dev.emi.trinkets.api.TrinketsApi;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
@@ -16,7 +21,10 @@ import toady.toolbox.effects.ModParticles;
 import toady.toolbox.item.ModItemGroups;
 import toady.toolbox.item.ModItems;
 import toady.toolbox.effects.ModSounds;
+import toady.toolbox.util.ModEnchantments;
 import toady.toolbox.util.ModLootTableModifiers;
+
+import java.util.Optional;
 
 public class ToadsToolbox implements ModInitializer {
 
@@ -27,6 +35,7 @@ public class ToadsToolbox implements ModInitializer {
 	public void onInitialize() {
 		ModItems.initialize();
 		ModItemGroups.initialize();
+		ModEnchantments.init();
 
 		ModSounds.initialize();
 		ModParticles.initialize();
@@ -36,6 +45,17 @@ public class ToadsToolbox implements ModInitializer {
 	}
 
 	//random util methods
+	public static ItemStack getEquipped(int slot, PlayerEntity entity, Item item){
+		Optional<TrinketComponent> trinketComponent = TrinketsApi.getTrinketComponent(entity);
+		if (entity.getInventory().getArmorStack(slot).isOf(item)){
+			return entity.getInventory().getArmorStack(slot);
+		}
+		else if (trinketComponent.isPresent() && trinketComponent.get().isEquipped(item)){
+			return trinketComponent.get().getEquipped(item).getFirst().getRight();
+		}
+		return ItemStack.EMPTY;
+	}
+
 	public static boolean hasShiftDown(){
 		if (FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT){
 			return Screen.hasShiftDown();

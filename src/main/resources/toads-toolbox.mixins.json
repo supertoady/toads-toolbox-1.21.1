@@ -3,14 +3,17 @@
   "package": "toady.toolbox.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "bandana.EntityRendererMixin",
     "cascade_boots.LivingEntityMixin",
     "goggles.LivingEntityMixin",
+    "slime_boots.LivingEntityMixin",
     "slime_boots.PlayerEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1
   },
   "client": [
+    "cascade_boots.InGameOverlayRendererMixin",
     "goggles.GameRendererMixin",
     "perspective.ItemRendererMixin",
     "perspective.ModelLoaderMixin"

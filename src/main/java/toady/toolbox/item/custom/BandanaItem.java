@@ -10,8 +10,8 @@ import toady.toolbox.ToadsToolbox;
 
 import java.util.List;
 
-public class NightVisionGogglesItem extends TrinketItem implements Equipment {
-    public NightVisionGogglesItem(Settings settings) {
+public class BandanaItem extends TrinketItem implements Equipment {
+    public BandanaItem(Settings settings) {
         super(settings);
     }
 
@@ -23,7 +23,7 @@ public class NightVisionGogglesItem extends TrinketItem implements Equipment {
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         if (ToadsToolbox.hasShiftDown()){
-            tooltip.add(Text.literal("§8Enhances your ability to see in the dark."));
+            tooltip.add(Text.literal("§8Hides your nametag while worn."));
         }
         else {
             tooltip.add(Text.literal("§8Press [§7Sneak§8] for Summary"));

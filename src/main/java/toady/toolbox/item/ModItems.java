@@ -14,6 +14,9 @@ public class ModItems {
     public static final Item NIGHT_VISION_GOGGLES = registerItem("night_vision_goggles",
             new NightVisionGogglesItem(new Item.Settings().maxCount(1)));
 
+    public static final Item BANDANA = registerItem("bandana",
+            new BandanaItem(new Item.Settings().maxCount(1)));
+
     public static final Item CASCADE_STRIDERS = registerItem("cascade_striders",
             new CascadeStridersItem(ModArmorMaterial.CASCADE_STRIDERS, ArmorItem.Type.BOOTS, new Item.Settings().rarity(Rarity.UNCOMMON).maxCount(1)));
 

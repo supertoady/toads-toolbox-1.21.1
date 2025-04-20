@@ -1,5 +1,6 @@
 {
   "item.toads-toolbox.night_vision_goggles": "Night Vision Goggles",
+  "item.toads-toolbox.bandana": "Bandana",
   "item.toads-toolbox.cascade_striders": "Cascade Striders",
   "item.toads-toolbox.slime_boots": "Slime Boots",
   "item.toads-toolbox.mob_magnet": "Mob Magnet",
@@ -9,7 +10,14 @@
 
   "subtitle.toads-toolbox.slime_boots_bounce": "Slime Boots bounces",
   "subtitle.toads-toolbox.breeze_jar_dash": "Breeze Jar dashes",
+  "subtitle.toads-toolbox.breeze_jar_ultradash": "Breeze Jar ultradashes",
+  "subtitle.toads-toolbox.breeze_jar_dash_water": "Breeze Jar dashes underwater",
   "subtitle.toads-toolbox.magic_mirror_teleport": "Magic Mirror teleports",
   "subtitle.toads-toolbox.magic_mirror_invalid": "Magic Mirror fails teleport",
-  "subtitle.toads-toolbox.ender_mirror_bind": "Ender Mirror binds position"
+  "subtitle.toads-toolbox.ender_mirror_bind": "Ender Mirror binds position",
+
+  "enchantment.toads-toolbox.moltenwalker": "Moltenwalker",
+  "enchantment.toads-toolbox.leaping": "Leaping",
+  "enchantment.toads-toolbox.jetstream": "Jetstream",
+  "enchantment.toads-toolbox.gust": "Gust"
 }

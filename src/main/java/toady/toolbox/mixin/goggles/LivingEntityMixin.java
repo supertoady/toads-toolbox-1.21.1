@@ -1,6 +1,5 @@
 package toady.toolbox.mixin.goggles;
 
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -13,8 +12,8 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import toady.toolbox.ToadsToolbox;
 import toady.toolbox.item.ModItems;
-import toady.toolbox.item.custom.NightVisionGogglesItem;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity{
@@ -26,7 +25,7 @@ public abstract class LivingEntityMixin extends Entity{
     public void hasStatusEffect(RegistryEntry<StatusEffect> effect, CallbackInfoReturnable<Boolean> cir){
         if (effect == StatusEffects.NIGHT_VISION){
             if ((Object)this instanceof PlayerEntity player){
-                cir.setReturnValue(NightVisionGogglesItem.isEquipped(player));
+                cir.setReturnValue(!ToadsToolbox.getEquipped(3, player, ModItems.NIGHT_VISION_GOGGLES).isEmpty());
             }
         }
     }

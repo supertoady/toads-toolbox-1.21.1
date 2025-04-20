@@ -18,6 +18,23 @@
     ],
     "subtitle": "subtitle.toads-toolbox.breeze_jar_dash"
   },
+  "item.breeze_jar.ultradash": {
+    "sounds": [
+      "mob/breeze/wind_burst1",
+      "mob/breeze/wind_burst2",
+      "mob/breeze/wind_burst3"
+    ],
+    "subtitle": "subtitle.toads-toolbox.breeze_jar_ultradash"
+  },
+  "item.breeze_jar.dash_water": {
+    "sounds": [
+      {
+        "name": "block/bubble_column/whirlpool_inside",
+        "volume": 0.7
+      }
+    ],
+    "subtitle": "subtitle.toads-toolbox.breeze_jar_dash_water"
+  },
   "item.magic_mirror.teleport": {
     "sounds": [
       "toads-toolbox:magic_mirror"
