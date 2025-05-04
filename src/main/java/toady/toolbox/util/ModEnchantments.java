@@ -2,8 +2,7 @@ package toady.toolbox.util;
 
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentLevelEntry;
-import net.minecraft.item.EnchantedBookItem;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.RegistryEntryLookup;
 import net.minecraft.registry.RegistryKey;
@@ -39,11 +38,11 @@ public class ModEnchantments {
         else return 0;
     }
 
-    public static ItemStack getBook(World world, RegistryKey<Enchantment> enchant, int lvl){
+    public static ItemStack enchantItem(Item item, World world, RegistryKey<Enchantment> enchant, int lvl){
         RegistryEntryLookup<Enchantment> lookup = world.getRegistryManager().createRegistryLookup().getOrThrow(RegistryKeys.ENCHANTMENT);
         Optional<RegistryEntry.Reference<Enchantment>> opt = lookup.getOptional(enchant);
-        AtomicReference<ItemStack> stack = new AtomicReference<>(ItemStack.EMPTY);
-        opt.ifPresent(entry -> stack.set(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(entry, lvl))));
+        AtomicReference<ItemStack> stack = new AtomicReference<>(item.getDefaultStack());
+        opt.ifPresent(entry -> stack.get().addEnchantment(entry, lvl));
         return stack.get();
     }
 

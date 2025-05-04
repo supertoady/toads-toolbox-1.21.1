@@ -73,7 +73,7 @@ public class ModLootTableModifiers {
             if(END_CITY_ID.equals(key.getValue())) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceLootCondition.builder(0.1f)) // 10% chance
+                        .conditionally(RandomChanceLootCondition.builder(0.25f)) // 25% chance
                         .with(ItemEntry.builder(Items.ENCHANTED_BOOK))
                         .apply(new SetEnchantmentsLootFunction.Builder().enchantment(wrapper.getOrThrow(ModEnchantments.GUST), ConstantLootNumberProvider.create(1.0F)))
                         .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1.0f)).build());

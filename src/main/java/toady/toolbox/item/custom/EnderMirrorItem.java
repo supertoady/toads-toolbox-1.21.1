@@ -1,6 +1,5 @@
 package toady.toolbox.item.custom;
 
-import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -13,6 +12,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.Vec3i;
 import net.minecraft.world.World;
 import toady.toolbox.ToadsToolbox;
+import toady.toolbox.effects.ModParticles;
 import toady.toolbox.item.ModComponents;
 import toady.toolbox.effects.ModSounds;
 
@@ -55,8 +55,11 @@ public class EnderMirrorItem extends Item {
 
                 if (Objects.equals(stack.get(ModComponents.ENDER_MIRROR_DIMENSION), world.getRegistryKey().toString())){
                     world.playSound(null, user.getX(), user.getY(), user.getZ(), ModSounds.ITEM_MAGIC_MIRROR_TELEPORT, SoundCategory.PLAYERS, 0.5f, 1);
+                    ToadsToolbox.showParticlesToAll(world, ModParticles.ENDER_MIRROR, user.getPos().add(0, 1, 0), 0.3, 15, 0.02);
+                    user.requestTeleport(pos.x, pos.y, pos.z);
+
                     world.playSound(null, pos.x, pos.y, pos.z, ModSounds.ITEM_MAGIC_MIRROR_TELEPORT, SoundCategory.PLAYERS, 0.5f, 1);
-                    user.requestTeleport(pos.x, pos.y + 1, pos.z);
+                    ToadsToolbox.showParticlesToAll(world, ModParticles.ENDER_MIRROR, pos.add(0, 1, 0), 0.3, 15, 0.02);
 
                     user.fallDistance = 0;
                     user.getItemCooldownManager().set(this, user.isCreative() ? 100 : 500);

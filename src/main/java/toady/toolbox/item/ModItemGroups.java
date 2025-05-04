@@ -22,15 +22,17 @@ public class ModItemGroups {
                 entries.add(ModItems.MAGIC_MIRROR);
                 entries.add(ModItems.ENDER_MIRROR);
                 entries.add(ModItems.BREEZE_JAR);
+                entries.add(ModEnchantments.enchantItem(ModItems.BREEZE_JAR, world, ModEnchantments.JETSTREAM, 1));
+                entries.add(ModEnchantments.enchantItem(ModItems.BREEZE_JAR, world, ModEnchantments.GUST, 1));
                 entries.add(ModItems.CASCADE_STRIDERS);
+                entries.add(ModEnchantments.enchantItem(ModItems.CASCADE_STRIDERS, world, ModEnchantments.MOLTENWALKER, 1));
                 entries.add(ModItems.SLIME_BOOTS);
+                entries.add(ModEnchantments.enchantItem(ModItems.SLIME_BOOTS, world, ModEnchantments.LEAPING, 1));
+                if (!ToadsToolbox.IS_ENCHANCEMENT_LOADED){
+                    entries.add(ModEnchantments.enchantItem(ModItems.SLIME_BOOTS, world, ModEnchantments.LEAPING, 2));
+                }
                 entries.add(ModItems.NIGHT_VISION_GOGGLES);
                 entries.add(ModItems.BANDANA);
-                entries.add(ModEnchantments.getBook(world, ModEnchantments.MOLTENWALKER, 1));
-                entries.add(ModEnchantments.getBook(world, ModEnchantments.JETSTREAM, 1));
-                entries.add(ModEnchantments.getBook(world, ModEnchantments.GUST, 1));
-                entries.add(ModEnchantments.getBook(world, ModEnchantments.LEAPING, 1));
-                entries.add(ModEnchantments.getBook(world, ModEnchantments.LEAPING, 2));
             })
             .build();
 

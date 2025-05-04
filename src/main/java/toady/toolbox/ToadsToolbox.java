@@ -31,8 +31,14 @@ public class ToadsToolbox implements ModInitializer {
 	public static final String MOD_ID = "toads-toolbox";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
+	public static boolean IS_ENCHANCEMENT_LOADED = false;
+
 	@Override
 	public void onInitialize() {
+		if (FabricLoader.getInstance().isModLoaded("enchancement")){
+			IS_ENCHANCEMENT_LOADED = true;
+		}
+
 		ModItems.initialize();
 		ModItemGroups.initialize();
 		ModEnchantments.init();

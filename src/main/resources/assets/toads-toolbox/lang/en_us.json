@@ -19,5 +19,10 @@
   "enchantment.toads-toolbox.moltenwalker": "Moltenwalker",
   "enchantment.toads-toolbox.leaping": "Leaping",
   "enchantment.toads-toolbox.jetstream": "Jetstream",
-  "enchantment.toads-toolbox.gust": "Gust"
+  "enchantment.toads-toolbox.gust": "Gust",
+
+  "enchantment.toads-toolbox.moltenwalker.desc": "Allows you to walk on lava and hides fire overlay while worn. Does not make you immune to fire.",
+  "enchantment.toads-toolbox.leaping.desc": "Gives you the Jump Boost effect while worn, causing you to jump higher.",
+  "enchantment.toads-toolbox.jetstream.desc": "Allows you to dash underwater. This dash is much stronger, and does not use up charge.",
+  "enchantment.toads-toolbox.gust.desc": "Causes the dash to be much more powerful. Replaces the charge with a long cooldown, allowing you to dash while midair without having to touch the ground."
 }

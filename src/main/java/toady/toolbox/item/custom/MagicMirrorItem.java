@@ -2,7 +2,6 @@ package toady.toolbox.item.custom;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -16,6 +15,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import toady.toolbox.ToadsToolbox;
+import toady.toolbox.effects.ModParticles;
 import toady.toolbox.effects.ModSounds;
 
 import java.util.List;
@@ -37,6 +37,7 @@ public class MagicMirrorItem extends Item {
                         Vec3d respawnPos = pos.toCenterPos();
 
                         if (serverPlayerEntity.getSpawnPointDimension() == world.getRegistryKey()){
+                            ToadsToolbox.showParticlesToAll(world, ModParticles.MAGIC_MIRROR, user.getPos().add(0, 1, 0), 0.3, 15, 0.02);
                             world.playSound(null, user.getX(), user.getY(), user.getZ(), ModSounds.ITEM_MAGIC_MIRROR_TELEPORT, SoundCategory.PLAYERS, 0.5f, 1);
                             Vec3d vecPos = respawnPos;
                             if (!state.isOf(Blocks.AIR)){
@@ -49,6 +50,7 @@ public class MagicMirrorItem extends Item {
                             user.fallDistance = 0;
                             user.getItemCooldownManager().set(this, user.isCreative() ? 100 : 500);
 
+                            ToadsToolbox.showParticlesToAll(world, ModParticles.MAGIC_MIRROR, vecPos.add(0, 1, 0), 0.3, 15, 0.02);
                             world.playSound(null, vecPos.x, vecPos.y, vecPos.z, ModSounds.ITEM_MAGIC_MIRROR_TELEPORT, SoundCategory.PLAYERS, 0.5f, 1);
                             return TypedActionResult.success(user.getStackInHand(hand));
                         }

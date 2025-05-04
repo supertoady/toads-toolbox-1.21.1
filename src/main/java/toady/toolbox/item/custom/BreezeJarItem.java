@@ -69,9 +69,9 @@ public class BreezeJarItem extends Item {
                         }
                     }
 
-                    user.getItemCooldownManager().set(this, gustLevel > 0 ? 20*15 : user.isSubmergedInWater() ? 20 : 5);
+                    user.getItemCooldownManager().set(this, gustLevel > 0 ? 20*10 : user.isSubmergedInWater() ? 20 : 5);
 
-                    float speed = gustLevel > 0 ? 1.5f : user.isSubmergedInWater() ? 1.0f : 0.6f;
+                    float speed = gustLevel > 0 ? 1.5f : user.isSubmergedInWater() ? 1.0f : 0.7f;
                     Vec3d dir = user.getRotationVector().normalize().multiply(speed);
                     user.addVelocity(new Vec3d(dir.x, dir.y, dir.z));
                     user.velocityDirty = true;
@@ -98,14 +98,10 @@ public class BreezeJarItem extends Item {
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        int dashes = Objects.requireNonNull(stack.get(ModComponents.BREEZE_JAR_DASHES));
         int gustLevel = ModEnchantments.getLevel(world, ModEnchantments.GUST, stack);
         if (entity instanceof PlayerEntity player && gustLevel <= 0) {
             if (player.isClimbing() || player.isOnGround() || player.isTouchingWater()){
                 stack.set(ModComponents.BREEZE_JAR_DASHES, 2);
-                if (dashes == 0){
-                    player.getItemCooldownManager().set(this, 40);
-                }
             }
         }
         super.inventoryTick(stack, world, entity, slot, selected);
